@@ -9,7 +9,7 @@ import requests
 # Set the webhook_url to the one provided by Slack when you create the webhook at https://my.slack.com/services/new/incoming-webhook/
 webhook_url = 'https://hooks.slack.com/services/xxxxxxxxxx/yyyyyyyyyyyyy/zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz'
 negative_slack_message = ":sob: ACT is still under maintenance :sob:"
-positive_slack_message = ":tada: :clash-happily: Yeah!! ACT is no longer in maintenance!!! @channel :clash-happily: :tada:"
+positive_slack_message = ":tada: :grin: Yeah!! ACT is no longer in maintenance!!! @channel :grin: :tada:"
 # minutes to wait between a negative message to slack
 negative_wait = 10
 
