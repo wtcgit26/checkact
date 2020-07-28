@@ -12,6 +12,9 @@ negative_slack_message = ":sob: ACT is still under maintenance :sob:"
 positive_slack_message = ":tada: :grin: Yeah!! ACT is no longer in maintenance!!! @channel :grin: :tada:"
 # minutes to wait between a negative message to slack
 negative_wait = 10
+# URL of the website  
+url = "https://my.act.org"
+search_maintenance_message = "we've taken the MyACT registration page down"
 
 
 # selenium options
@@ -24,18 +27,6 @@ chrome_driver = "./chromedriver"
 #print (chrome_driver)
 driver = webdriver.Chrome(options=options, executable_path=chrome_driver)
   
-# URL of the website  
-url = "https://my.act.org"
-  
-# Opening the URL in a browser (will be headless if options are made above)
-driver.get(url) 
-
-# Getting current URL source code as a string
-get_source = driver.page_source 
-
-# String to search in website
-check_maintenance = get_source.find("We are sorry, but our site is down for maintenance")
-#print(check_maintenance)
 
 # horribly designed - will run forever unless ctrl-C - version 2.0 will be better
 keep_going = True
@@ -46,6 +37,14 @@ negative_count = 0
 slack_message = negative_slack_message
 
 while(keep_going):
+
+	# Opening the URL in a browser (will be headless if options are made above)
+	driver.get(url) 
+	# Getting current URL source code as a string
+	get_source = driver.page_source 
+	# String to search in website
+	check_maintenance = get_source.find(search_maintenance_message)
+	#print(check_maintenance)
 
 	counting = counting + 1
 
